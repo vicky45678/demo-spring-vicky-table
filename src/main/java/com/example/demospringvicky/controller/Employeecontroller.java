@@ -11,11 +11,36 @@ import java.util.List;
     public class Employeecontroller {
     List<Employee> employeeList=new ArrayList<>();
 
+    @RequestMapping("/get_employee")
+    public List<Employee>display(){
+        return employeeList;
+    }
+
     @RequestMapping("/add_employee")
     public String add_employee(){
         Employee employee=new Employee("vicky","S.I",110,67000);
         employeeList.add(employee);
-        return "add_employee..."+employee.getSr_no();
+        return "add_employee..."+employee.getName();
 
     }
+    @RequestMapping("/remove_employee")
+        public String remove_employee(){
+        try {
+            employeeList.remove(0);
+            return "remove" + employeeList.get(0).getName();
+            }
+        catch (Exception e){
+            return "vicky";
+        }
+
+    }
+    @RequestMapping("/update_employee")
+    public String update_employee(){
+        Employee employee=employeeList.get(0);
+        employee.setName("vicky");
+        employeeList.add(employee);
+        return "update..."+employee.getName();
+
+    }
+
 }

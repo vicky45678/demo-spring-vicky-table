@@ -1,6 +1,7 @@
 package com.example.demospringvicky.controller;
 
 import com.example.demospringvicky.model.Doctor;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +14,7 @@ public class Doctorcontroller {
 
     @RequestMapping("/get_Doctor")
     public List<Doctor> display(){
+
         return doctorList;
     }
     @RequestMapping("/add_Doctor")
